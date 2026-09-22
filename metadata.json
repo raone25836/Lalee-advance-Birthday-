@@ -1,0 +1,8 @@
+{
+  "name": "Remix Lalee Advance Birthday Portal",
+  "description": "Heart-themed 3D advance birthday surprise portal for Lalee (Miss Chai) with personalized nickname wishes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
