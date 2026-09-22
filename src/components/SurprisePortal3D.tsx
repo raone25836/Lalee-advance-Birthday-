@@ -1,14 +1,15 @@
 import { useState, useRef, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
-import { Sparkles, Heart, Gift, Volume2, RefreshCw, Flame, ArrowRight, Star, Coffee } from 'lucide-react';
+import { Sparkles, Heart, Gift, Volume2, RefreshCw, Flame, ArrowRight, Star, Coffee, MessageSquareHeart } from 'lucide-react';
 import { playSurpriseMelody, playCandleBlowSound } from '../utils/audioCelebration';
 
 interface SurprisePortal3DProps {
   onOpenNicknamesHub: () => void;
+  onOpenWishesBoard?: () => void;
 }
 
-export function SurprisePortal3D({ onOpenNicknamesHub }: SurprisePortal3DProps) {
+export function SurprisePortal3D({ onOpenNicknamesHub, onOpenWishesBoard }: SurprisePortal3DProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlown, setIsBlown] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -298,6 +299,17 @@ export function SurprisePortal3D({ onOpenNicknamesHub }: SurprisePortal3DProps) 
                 <p className="text-[11px] text-pink-300/80 mt-2">
                   Special personalized wishes for Miss Chai, Silky, Cutie, Lalee ji & more!
                 </p>
+
+                {onOpenWishesBoard && (
+                  <button
+                    type="button"
+                    onClick={onOpenWishesBoard}
+                    className="w-full mt-3 group flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-pink-950/70 hover:bg-pink-900/90 text-pink-200 hover:text-white font-bold text-xs sm:text-sm border border-pink-400/40 shadow-md transition-all cursor-pointer min-h-[46px]"
+                  >
+                    <MessageSquareHeart className="w-4 h-4 text-pink-400" />
+                    <span>💌 Guest Wishes Board & Leave a Wish</span>
+                  </button>
+                )}
               </div>
 
               {/* Auxiliary Controls */}

@@ -1,0 +1,18 @@
+services:
+  birthday-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lalee-birthday-portal
+    image: lalee-birthday-portal:latest
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
